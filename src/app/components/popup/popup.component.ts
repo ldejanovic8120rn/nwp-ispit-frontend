@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-popup',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopupComponent implements OnInit {
 
+  @Input("message") message: string = "";
+  @Input("title") title: string | undefined;
+  @Input("displayStyle") displayStyle = "none";
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  closePopup() {
+    this.displayStyle = "none";
   }
 
 }

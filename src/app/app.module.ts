@@ -9,6 +9,8 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { UsersComponent } from './components/users/users.component';
 import { PopupComponent } from './components/popup/popup.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import { PopupComponent } from './components/popup/popup.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
