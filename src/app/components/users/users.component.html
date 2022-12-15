@@ -1,1 +1,35 @@
-<p>users works!</p>
+<div class="container">
+  <br><br>
+  <div class="row">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Permissions</th>
+        <th *ngIf="canDelete">Delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>
+          <div id="underline-email" *ngIf="canUpdate; else cantUpdate" (click)="openUpdateUser(user.id)">
+            {{ user.email }}
+          </div>
+          <ng-template #cantUpdate>
+            {{ user.email }}
+          </ng-template>
+        </td>
+        <td>{{ printRoles(user.userRoles) }}</td>
+        <td *ngIf="canDelete">
+          <button type="button" class="btn btn-outline-danger rounded-pill" (click)="deleteUser(user.id)">DELETE</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-popup></app-popup>
+</div>
