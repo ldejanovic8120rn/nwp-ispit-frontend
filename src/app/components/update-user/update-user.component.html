@@ -1,1 +1,80 @@
-<p>update-user works!</p>
+<div class="container">
+  <br><br>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3>Update User</h3>
+    </div>
+  </div>
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <label for="input-name">Name</label>
+      <input [(ngModel)]="firstName" id="input-name" type="text" class="form-control" placeholder="First name">
+    </div>
+  </div>
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <label for="input-surname">Surname</label>
+      <input [(ngModel)]="lastName" id="input-surname" type="text" class="form-control" placeholder="Last name">
+    </div>
+  </div>
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <label for="input-email">Email</label>
+      <input [(ngModel)]="email" id="input-email" type="email" class="form-control" placeholder="Email">
+    </div>
+  </div>
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-1 text-center">
+      <div class="form-check form-check-inline">
+        <input [(ngModel)]="create" class="form-check-input" type="checkbox" id="create" value="create">
+        <label class="form-check-label" for="create">create</label>
+      </div>
+    </div>
+
+    <div class="col-1 text-center">
+      <div class="form-check form-check-inline">
+        <input [(ngModel)]="read" class="form-check-input" type="checkbox" id="read" value="read">
+        <label class="form-check-label" for="read">read</label>
+      </div>
+    </div>
+
+    <div class="col-1 text-center">
+      <div class="form-check form-check-inline">
+        <input [(ngModel)]="update" class="form-check-input" type="checkbox" id="update" value="update">
+        <label class="form-check-label" for="update">update</label>
+      </div>
+    </div>
+
+    <div class="col-1 text-center">
+      <div class="form-check form-check-inline">
+        <input [(ngModel)]="delete" class="form-check-input" type="checkbox" id="delete" value="delete">
+        <label class="form-check-label" for="delete">delete</label>
+      </div>
+    </div>
+
+  </div>
+  <br>
+
+  <div class="row justify-content-center update-btn">
+    <div class="col-md-2 d-grid">
+      <button type="button" class="btn btn-success btn-block rounded-pill" (click)="updateUser()">Update</button>
+    </div>
+  </div>
+
+  <div class="row justify-content-center update-btn">
+    <div class="col-md-2 d-grid">
+      <button type="button" class="btn btn-outline-success btn-block rounded-pill" (click)="goToUsersPage()">Cancel</button>
+    </div>
+  </div>
+
+  <app-popup></app-popup>
+</div>
