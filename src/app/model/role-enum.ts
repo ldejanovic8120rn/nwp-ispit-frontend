@@ -1,6 +1,6 @@
 export enum RoleEnum{
-  CREATE = "CREATE",
-  UPDATE = "UPDATE",
-  READ = "READ",
-  DELETE = "DELETE"
+  CAN_CREATE = "CAN_CREATE",
+  CAN_UPDATE = "CAN_UPDATE",
+  CAN_READ = "CAN_READ",
+  CAN_DELETE = "CAN_DELETE"
 }
