@@ -52,7 +52,7 @@ export class UserService {
   }
 
   createUser(firstName: string, lastName: string, email: string, password: string, userRoles: string[]): Observable<UserResponse>{
-    return this.httpClient.post<UserResponse>(this.usersUrl,
+    return this.httpClient.post<UserResponse>(this.usersUrl + "/create",
       {
         firstName: firstName,
         lastName: lastName,
