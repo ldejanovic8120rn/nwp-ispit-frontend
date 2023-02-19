@@ -31,6 +31,16 @@ export class UserService {
     return decoded.roles.includes(role);
   }
 
+  getUserEmail(): string | null{
+    let token = localStorage.getItem("jwt");
+    if(token == null){
+      return null;
+    }
+
+    let decoded = jwtDecode<TokenPayload>(token);
+    return decoded.sub;
+  }
+
   getAllUsers():Observable<UserResponse[]>{
     return this.httpClient.get<UserResponse[]>(this.usersUrl, {
       headers: this.headers

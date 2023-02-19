@@ -1,1 +1,65 @@
-<p>machines works!</p>
+<div class="container">
+  <br><br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-2 d-flex align-items-center">
+      <input type="text" class="form-control" placeholder="Name" [(ngModel)]="machineName">
+    </div>
+    <div class="col-md-2 d-flex align-items-center">
+      <input type="date" class="form-control" placeholder="From" id="date-from">
+    </div>
+    <div class="col-md-2 d-flex align-items-center">
+      <input type="date" class="form-control" placeholder="To" id="date-to">
+    </div>
+    <div class="col-md-2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="STOPPED" id="stopped-check">
+        <label class="form-check-label">Stopped</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="RUNNING" id="running-check">
+        <label class="form-check-label">Running</label>
+      </div>
+    </div>
+    <div class="col-md-2 d-flex align-items-center text-center">
+      <button type="button" class="btn btn-success btn-block rounded-pill" (click)="searchMachines()">Search</button>
+    </div>
+  </div>
+  <br>
+
+  <div class="row justify-content-center overflow-auto">
+    <div *ngFor="let machine of machines" class="col-md-3 align-items-center single-machine">
+      <h5>{{ machine.name }}</h5>
+      <h6>{{ machine.status }}</h6>
+      <p>{{ machine.createdDate | date: 'medium' }}</p>
+      <div *ngIf="isStopped(machine.status); else running" class="d-flex align-items-center">
+        <img *ngIf="canStart" class="machine-action" src="./assets/power-on.svg" alt="power on" width="30" height="30" (click)="startMachine(machine.id)">
+        <img *ngIf="canDestroy" class="machine-action" src="./assets/delete.svg" alt="delete" width="35" height="35" (click)="deleteMachine(machine.id)">
+        <img class="machine-action ms-auto" src="./assets/time.svg" alt="schedule" width="30" height="30" (click)="openSchedule(machine.id, machine.name)">
+      </div>
+      <ng-template #running>
+        <div class="d-flex align-items-center">
+          <img *ngIf="canStop" class="machine-action" src="./assets/power-off.svg" alt="power off" width="30" height="30" (click)="stopMachine(machine.id)">
+          <img *ngIf="canRestart" class="machine-action" src="./assets/restart.svg" alt="restart" width="30" height="30" (click)="restartMachine(machine.id)">
+          <img class="machine-action ms-auto" src="./assets/time.svg" alt="schedule" width="30" height="30" (click)="openSchedule(machine.id, machine.name)">
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <br><br>
+  <div *ngIf="canCreate">
+    <div class="row justify-content-center">
+      <div class="col-md-4 align-items-center">
+        <input type="text" class="form-control" placeholder="New machine name" [(ngModel)]="createMachineName">
+      </div>
+    </div>
+    <div class="row justify-content-center create-machine">
+      <div class="col-md-4 d-grid align-items-center">
+        <button type="button" class="btn btn-success btn-block rounded-pill" (click)="createMachine()">Create Machine</button>
+      </div>
+    </div>
+  </div>
+
+  <app-popup></app-popup>
+</div>
