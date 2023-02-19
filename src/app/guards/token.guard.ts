@@ -10,7 +10,6 @@ import {TokenPayload} from "../model/token-payload";
 export class TokenGuard implements CanActivate {
 
   constructor(private router: Router) {
-
   }
 
   canActivate(
@@ -20,7 +19,11 @@ export class TokenGuard implements CanActivate {
     let roles = route.data['roles'];
     let token = localStorage.getItem("jwt");
 
-    if(token){
+    if(token) {
+      if(roles === undefined || roles.length == 0){
+        return true;
+      }
+
       let decoded = jwtDecode<TokenPayload>(token);
       for(let userRole of decoded.roles){
         if(roles.includes(userRole)){
