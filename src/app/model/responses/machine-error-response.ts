@@ -5,6 +5,6 @@ export interface MachineErrorResponse{
   id: number,
   message: string,
   action: MachineActionEnum,
-  dateError: number,
-  machine: MachineResponse
+  machine: MachineResponse,
+  dateError: number
 }
