@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
 import {RoleEnum} from "../../model/role-enum";
 import * as SockJS from "sockjs-client";
 import {environment} from "../../../environments/environment";
-import {Stomp} from "@stomp/stompjs";
+import {CompatClient, Stomp} from "@stomp/stompjs";
 import {MachineActionEnum} from "../../model/machine-action-enum";
 
 @Component({
@@ -82,7 +82,7 @@ export class MachinesComponent implements OnInit {
   onConnect(){
     let email = this.userService.getUserEmail();
     if(email != null){
-      this.stompClient.subscribe('/topic/' + email, this.changeMachines.bind(this));
+      this.stompClient.subscribe('/machine-fe/' + email, this.changeMachines.bind(this));
     }
   }
 
