@@ -1,0 +1,41 @@
+<div class="container">
+  <br><br>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3>Machine Errors</h3>
+    </div>
+  </div>
+  <br>
+
+  <div *ngIf="machineErrors.length == 0; else table" class="row">
+    <div class="col-md-12 text-center">
+      <h6>You have no errors...</h6>
+    </div>
+  </div>
+
+  <ng-template #table>
+    <div class="row">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Machine</th>
+          <th scope="col">Date</th>
+          <th scope="col">Action</th>
+          <th scope="col">Message</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let machineError of machineErrors">
+          <td>{{ machineError.machine.name }}</td>
+          <td>{{ machineError.dateError | date: 'medium' }}</td>
+          <td>{{ machineError.action }}</td>
+          <td>{{ machineError.message }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
+
+  <app-popup></app-popup>
+</div>

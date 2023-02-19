@@ -7,6 +7,13 @@ import {HomeComponent} from "./components/home/home.component";
 import {LoginComponent} from "./components/login/login.component";
 import {CreateUserComponent} from "./components/create-user/create-user.component";
 import {UpdateUserComponent} from "./components/update-user/update-user.component";
+import {MachinesComponent} from "./components/machines/machines.component";
+import {ScheduleComponent} from "./components/schedule/schedule.component";
+import {MachineErrorComponent} from "./components/machine-error/machine-error.component";
+
+function MachineErrorsComponent() {
+
+}
 
 const routes: Routes = [
   {
@@ -34,6 +41,22 @@ const routes: Routes = [
     component: UpdateUserComponent,
     canActivate: [TokenGuard],
     data: {roles: [RoleEnum.CAN_UPDATE]}
+  },
+  {
+    path: "machines",
+    component: MachinesComponent,
+    canActivate: [TokenGuard],
+    data: {roles: [RoleEnum.CAN_SEARCH_MACHINE]}
+  },
+  {
+    path: "machine-errors",
+    component: MachineErrorComponent,
+    canActivate: [TokenGuard]
+  },
+  {
+    path: "schedule/:machineId/:machineName",
+    component: ScheduleComponent,
+    canActivate: [TokenGuard]
   }
 ];
 

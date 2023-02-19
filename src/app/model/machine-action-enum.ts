@@ -1,5 +1,5 @@
 export enum MachineActionEnum{
-  START= "START",
+  START = "START",
   STOP = "STOP",
   RESTART = "RESTART"
 }

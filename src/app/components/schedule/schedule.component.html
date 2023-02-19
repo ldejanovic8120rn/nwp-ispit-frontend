@@ -1,0 +1,45 @@
+<div class="container">
+  <br><br>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3>Schedule a task for {{ machineName }}</h3>
+    </div>
+  </div>
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4 d-flex align-items-center">
+      <label for="action-select">Choose action:</label>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 d-flex align-items-center">
+      <select id="action-select" class="form-select">
+        <option *ngFor="let action of allowedActions" value="{{ action }}">{{ action }}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4 d-flex align-items-center">
+      <input type="date" class="form-control schedule-form" id="date-schedule">
+      <input type="time" class="form-control schedule-form" id="time-schedule">
+    </div>
+  </div>
+  <br>
+
+  <div class="row justify-content-center schedule-btn">
+    <div class="col-md-2 d-grid">
+      <button type="button" class="btn btn-success btn-block rounded-pill" (click)="scheduleTask()">Schedule</button>
+    </div>
+  </div>
+
+  <div class="row justify-content-center schedule-btn">
+    <div class="col-md-2 d-grid">
+      <button type="button" class="btn btn-outline-success btn-block rounded-pill" (click)="returnToMachines()">Cancel</button>
+    </div>
+  </div>
+
+  <app-popup></app-popup>
+</div>

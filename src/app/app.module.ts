@@ -11,6 +11,9 @@ import { UsersComponent } from './components/users/users.component';
 import { PopupComponent } from './components/popup/popup.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { MachineErrorComponent } from './components/machine-error/machine-error.component';
+import { MachinesComponent } from './components/machines/machines.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     CreateUserComponent,
     UpdateUserComponent,
     UsersComponent,
-    PopupComponent
+    PopupComponent,
+    MachineErrorComponent,
+    MachinesComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,

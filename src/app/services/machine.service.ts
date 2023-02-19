@@ -82,8 +82,7 @@ export class MachineService {
   }
 
   getMachineErrors():Observable<MachineErrorResponse[]>{
-    return this.httpClient.get<MachineErrorResponse[]>(
-      this.machinesUrl + "/errors",
+    return this.httpClient.get<MachineErrorResponse[]>(this.machinesUrl + "/errors",
       {headers: this.headers})
       .pipe(
         catchError(err => {
